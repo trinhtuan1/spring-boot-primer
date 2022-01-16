@@ -16,7 +16,8 @@ public class UserListController {
     private UserService userService;
 
     @GetMapping("/list")
-    public List<MUser> getList() {
-        return userService.getUsers();
+    public List<MUser> getUserList() {
+        List<MUser> userList = userService.getUsers();
+        return userList;
     }
 }
