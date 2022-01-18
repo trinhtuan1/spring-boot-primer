@@ -9,4 +9,6 @@ public interface UserService {
     public void signup(MUser user);
 
     public List<MUser> getUsers();
+
+    public MUser getOneUser(String userId);
 }
