@@ -3,7 +3,9 @@ VALUES ('1', 'Tom', 30);
 
 /* User master */
 INSERT INTO m_user(user_id, password, user_name, birthday, age, gender, department_id, role)
-VALUES ('trinhtuan@gmail.com', 'password', 'trinh tuan', '2021-11-09', 21, 1, 1, 'ROLE_GENERAL');
+VALUES ('tuan1@gmail.com', 'password1', 'trinh tuan', '1995-11-09', 26, 1, 1, 'ROLE_GENERAL'),
+       ('tuan2@gmail.com', 'password2', 'trinh tuan1', '1995-11-09', 26, 1, 1, 'ROLE_GENERAL'),
+       ('tuan3@gmail.com', 'password3', 'trinh tuan2', '2005-11-09', 16, 1, 1, 'ROLE_GENERAL');
 
 /* Department master */
 INSERT INTO m_department(department_id, department_name)
