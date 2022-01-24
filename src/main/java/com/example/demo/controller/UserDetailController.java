@@ -23,6 +23,7 @@ public class UserDetailController {
         MUser user = userService.getOneUser(userId);
         user.setPassword(null);
         form = modelMapper.map(user, UserDetailForm.class);
+        form.setSalaryList(user.getSalaryList());
         return form;
     }
 

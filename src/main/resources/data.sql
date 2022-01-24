@@ -13,5 +13,6 @@ VALUES (1, 'Sales'), (2, 'Marketing');
 
 /* Salary table */
 INSERT INTO t_salary(user_id, year_month, salary)
-VALUES ('trinhtuan@gmail.com', '11/2021', 2880),
-       ('trinhtuan1@gmail.com', '12/2021', 3990);
+VALUES ('tuan1@gmail.com', '10/2021', 2323),
+       ('tuan1@gmail.com', '11/2021', 2880),
+       ('tuan1@gmail.com', '12/2021', 3990);
