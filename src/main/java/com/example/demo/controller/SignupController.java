@@ -8,6 +8,8 @@ import com.example.demo.service.UserApplicationService;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,5 +38,9 @@ public class SignupController {
         MUser user = modelMapper.map(form, MUser.class);
         userService.signup(user);
         return form.toString();
+    }
+    @ExceptionHandler(DataAccessException.class)
+    public HttpStatus exceptionHandler(Exception ex) {
+        return HttpStatus.INTERNAL_SERVER_ERROR;
     }
 }
