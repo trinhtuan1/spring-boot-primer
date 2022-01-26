@@ -4,6 +4,7 @@ import com.example.demo.domain.user.model.MUser;
 import com.example.demo.domain.user.service.UserService;
 import com.example.demo.repository.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,10 +15,15 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper mapper;
 
+    @Autowired
+    private PasswordEncoder encoder;
+
     @Override
     public void signup(MUser user) {
         user.setDepartmentId(1);
         user.setRole("ROLE_REGULAR");
+        String rawPassword = user.getPassword();
+        user.setPassword(encoder.encode(rawPassword));
         mapper.insertOne(user);
     }
 
@@ -34,8 +40,8 @@ public class UserServiceImpl implements UserService {
     @Transactional
     @Override
     public String updateOneUser(String userId, String password, String userName) {
-        mapper.updateOne(userId, password, userName);
-        int i = 1 / 0;
+        String encryptPassword = encoder.encode(password);
+        mapper.updateOne(userId, encryptPassword, userName);
         return "success";
     }
 
