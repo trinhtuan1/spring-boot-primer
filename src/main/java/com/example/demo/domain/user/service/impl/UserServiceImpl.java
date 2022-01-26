@@ -50,4 +50,9 @@ public class UserServiceImpl implements UserService {
         int count = mapper.deleteOne(userId);
         return Integer.toString(count);
     }
+
+    @Override
+    public MUser getLoginUser(String userId) {
+        return mapper.findLoginUser(userId);
+    }
 }
