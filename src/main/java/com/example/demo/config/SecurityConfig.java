@@ -24,6 +24,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/login").permitAll()
                 .antMatchers("/user/signup").permitAll()
                 .anyRequest().authenticated();
+
+        http.formLogin()
+                .loginProcessingUrl("/login")
+                .loginPage("/login")
+                .failureUrl("/login?error")
+                .usernameParameter("userId")
+                .passwordParameter("password")
+                .defaultSuccessUrl("/user/list", true);
+
         http.csrf().disable();
     }
 }
